@@ -33,4 +33,5 @@ public:
     
     Client* gasesteClient(std::string nume);
     Carte* gasesteCarte(std::string titlu);
+
 };
