@@ -1,0 +1,27 @@
+name: C++ Debug Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Configure CMake
+
+      run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build
+
+      run: cmake --build build --config Release
+
+    - name: DEBUG - Arata-mi fisierele create
+
+      run: ls -R build/
+
+    - name: Test Run (Incercare)
+
+      continue-on-error: true
+      run: echo "4 6 0" | ./build/app
